@@ -1,0 +1,32 @@
+version: "3"
+
+
+services:
+  eureka-server:
+    image: llu1ts/euraka-server
+    ports:
+      - "8761:8761"
+  auth-service:
+    image: llu1ts/auth-service
+    ports:
+      - "9100:9100"
+    depends_on:
+      - eureka-server
+  gallery-service:
+    image: llu1ts/gallery-service
+    ports:
+      - "8100:8100"
+    depends_on:
+      - eureka-server
+  gateway-service:
+    image: llu1ts/gateway-service
+    ports:
+      - "8762:8762"
+    depends_on:
+      - eureka-server
+  image-service:
+    image: llu1ts/image-service
+    ports:
+      - "8200:8200"
+    depends_on:
+      - eureka-server

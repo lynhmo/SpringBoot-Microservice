@@ -1,0 +1,24 @@
+
+spring:
+  application:
+    name: zuul-gateway
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 8765
+
+zuul:
+#  sensitiveHeaders: Cookie,Set-Cookie
+  routes:
+    auth-service:
+      path: /auth/**
+      url: http://localhost:9100/auth/
+      service-id: auth-service
+#      strip-prefix: false
+    gallery-service:
+      path: /gallery/**
+      url: http://localhost:8200/gallery

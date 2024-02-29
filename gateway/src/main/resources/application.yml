@@ -1,0 +1,22 @@
+server:
+  port: 8762
+
+eureka:
+  instance:
+    hostname: localhost
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+        routes:
+          - id: gallery-service
+            uri: http://localhost:8100/gallery
+            predicates:
+              - Path=/gallery/**
+
+          - id: auth-service
+            uri: http://localhost:9100/auth
+            predicates:
+              - Path=/auth/**
