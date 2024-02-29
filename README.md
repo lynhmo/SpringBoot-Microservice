@@ -16,5 +16,7 @@
 - Spring Boot 3
 - Lombok
 
+#### JDK: 17 and Java 8
+
 TL;DR: Microservice Spring Boot with all the new libs (kind of) \
 I haven't done the docker but what ever.
