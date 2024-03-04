@@ -22,6 +22,7 @@ import gtel.code.authService.security.service.UserDetailsImpl;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -30,6 +31,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashSet;
@@ -99,11 +101,19 @@ public class AuthController {
                 roles));
     }
     @PostMapping("/signout")
-    public ResponseEntity<?> logoutUser() {
-        UserDetailsImpl userDetails = (UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Long userId = userDetails.getId();
-        refreshTokenService.deleteByUserId(userId);
-        return ResponseEntity.ok(new MessageResponse("Log out successful!"));
+    public ResponseEntity<?> logoutUser(@RequestHeader("Authorization") String headerAuth) {
+//        UserDetailsImpl userDetails = (UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        Long userId = userDetails.getId();
+        if (StringUtils.hasText(headerAuth) && headerAuth.startsWith("Bearer ")) {
+            String token = headerAuth.substring(7);
+            String username = jwtUtils.getUserNameFromJwtToken(token);
+            User user = userRepository.findByUsername(username).orElseThrow();
+            Long userId = user.getId();
+            refreshTokenService.deleteByUserId(userId);
+            return ResponseEntity.ok(new MessageResponse("Log out successful!"));
+        }
+        return ResponseEntity.badRequest().body(new MessageResponse("Bad :("));
+
     }
 
     @PostMapping("/signup")
@@ -166,7 +176,6 @@ public class AuthController {
 
     @PostMapping("/authenticate")
     public ResponseEntity<?> authenticate(@Valid @RequestBody TokenRequest tokenRequest){
-//        UserDetailsImpl userDetails = (UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (jwtUtils.validateJwtToken(tokenRequest.getToken())) {
             String userName = jwtUtils.getUserNameFromJwtToken(tokenRequest.getToken());
             Claims claims = jwtUtils.getRolesFromJwtToken(tokenRequest.getToken());

@@ -1,13 +1,8 @@
 FROM eclipse-temurin:17-jdk
 
-WORKDIR /app
+COPY target/eureka-server-0.0.1-SNAPSHOT.jar /eurekaServer.jar
 
-COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
-RUN ./mvnw dependency:go-offline
-
-COPY src ./src
 ENV PORT=8761
 EXPOSE 8761
 
-CMD ["./mvnw", "spring-boot:run"]
+CMD ["java", "-jar","/eurekaServer.jar"]

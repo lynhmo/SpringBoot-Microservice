@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>gtel.code</groupId>
-	<artifactId>Image-Service</artifactId>
+	<artifactId>ImageService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Image Service</name>
 	<description>test</description>

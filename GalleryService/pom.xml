@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>gtel.code</groupId>
-	<artifactId>eureka-client</artifactId>
+	<artifactId>GalleryService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>eureka-client</name>
 	<description>test</description>

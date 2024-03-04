@@ -1,12 +1,13 @@
-# serivce name
+server:
+  port: 8200
 
-spring.application.name=image-service
+eureka:
+  client:
+    service-url:
+#      defaultZone: http://localhost:8761/eureka/
+#      defaultZone: http://eureka-server:8761/eureka/
+      defaultZone: http://host.docker.internal:8761/eureka/
 
-# port
-
-server.port=8200
-
-# eureka server url
-
-eureka.client.service-url.default-zone=http://host.docker.internal:8761/eureka/
-#eureka.client.service-url.default-zone=http://localhost:8761/eureka
+spring:
+  application:
+    name: image-service

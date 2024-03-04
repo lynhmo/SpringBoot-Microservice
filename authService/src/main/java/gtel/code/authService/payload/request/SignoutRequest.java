@@ -1,2 +1,5 @@
-package gtel.code.authService.payload.request;public class SignoutRequest {
+package gtel.code.authService.payload.request;
+
+public class SignoutRequest {
+
 }

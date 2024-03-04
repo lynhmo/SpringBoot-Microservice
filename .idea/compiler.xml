@@ -8,11 +8,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="gateway (1)" />
-        <module name="eureka-client" />
+        <module name="GalleryService" />
         <module name="zuul-gateway" />
-        <module name="Image-Service" />
         <module name="authService" />
         <module name="eureka-server" />
+        <module name="ImageService" />
         <module name="gateway" />
       </profile>
     </annotationProcessing>
@@ -22,9 +22,9 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Image-Service" options="-parameters" />
+      <module name="GalleryService" options="-parameters" />
+      <module name="ImageService" options="-parameters" />
       <module name="authService" options="-parameters" />
-      <module name="eureka-client" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="gateway (1)" options="-parameters" />

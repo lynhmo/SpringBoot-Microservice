@@ -1,16 +1,17 @@
 version: "3.8"
 
 services:
-  gateway:
+  gallery:
     build: .
-    container_name: GatewayService
+    container_name: GalleryService
     ports:
-      - "8762:8762"
+      - "8100:8100"
     environment:
-      PORT: 8762
-    command: ["java", "-jar","/gatewayService.jar"]
+      PORT: 8100
+    command: ["java", "-jar","/galleryService.jar"]
     networks:
       - micro-net
 networks:
   micro-net:
     name: micro-net
+    external: true

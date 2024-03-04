@@ -1,13 +1,8 @@
-FROM openjdk:17-oracle
+FROM eclipse-temurin:17-jdk
 
-WORKDIR /app
+COPY target/GalleryService-0.0.1-SNAPSHOT.jar /galleryService.jar
 
-COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
-RUN ./mvnw dependency:go-offline
-
-COPY src ./src
 ENV PORT=8100
 EXPOSE 8100
 
-CMD ["./mvnw", "spring-boot:run"]
+CMD ["java", "-jar","/galleryService.jar"]

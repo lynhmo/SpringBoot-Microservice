@@ -1,13 +1,9 @@
+
 FROM eclipse-temurin:17-jdk
 
-WORKDIR /app
+COPY target/gateway-0.0.1-SNAPSHOT.jar /gatewayService.jar
 
-COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
-RUN ./mvnw dependency:go-offline
-
-COPY src ./src
 ENV PORT=8762
 EXPOSE 8762
 
-CMD ["./mvnw", "spring-boot:run"]
+CMD ["java", "-jar","/gatewayService.jar"]

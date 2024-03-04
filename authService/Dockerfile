@@ -1,13 +1,8 @@
 FROM eclipse-temurin:17-jdk
 
-WORKDIR /app
+COPY target/authService-0.0.1-SNAPSHOT.jar /authService.jar
 
-COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
-RUN ./mvnw dependency:go-offline
-
-COPY src ./src
 ENV PORT=9100
 EXPOSE 9100
 
-CMD ["./mvnw", "spring-boot:run"]
+CMD ["java", "-jar","/authService.jar"]

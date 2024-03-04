@@ -2,6 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/GalleryService/GalleryService.iml" filepath="$PROJECT_DIR$/GalleryService/GalleryService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ImageService/ImageService.iml" filepath="$PROJECT_DIR$/ImageService/ImageService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/authService/authService.iml" filepath="$PROJECT_DIR$/authService/authService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/gatewaySecurity/gatewaySecurity.iml" filepath="$PROJECT_DIR$/gatewaySecurity/gatewaySecurity.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/micro-service.iml" filepath="$PROJECT_DIR$/.idea/micro-service.iml" />
     </modules>

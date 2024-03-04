@@ -1,14 +1,14 @@
 version: "3.8"
 
 services:
-  gateway:
+  image:
     build: .
-    container_name: GatewayService
+    container_name: ImageService
     ports:
-      - "8762:8762"
+      - "8200:8200"
     environment:
-      PORT: 8762
-    command: ["java", "-jar","/gatewayService.jar"]
+      PORT: 8200
+    command: ["java", "-jar","/imageService.jar"]
     networks:
       - micro-net
 networks:
