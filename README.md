@@ -18,5 +18,12 @@
 
 #### JDK: 17 and Java 8
 
-TL;DR: Microservice Spring Boot with all the new libs (kind of) \
-I haven't done the docker but what ever.
+TL;DR: Microservice Spring Boot with all the new libs (kind of)
+
+Run the docker if u want. \
+**Note**: build the jar file before run docker
+- <a href="https://github.com/lynhmo/SpringBoot-Microservice/blob/main/docker-compose.yml">MySQL Docker For Auth Service</a> run this service before Auth Service
+- I haven't make the Role data when init so after run MySQL and Auth Service (need to run this to make all the table we need) 
+- Create 3 role **ROLE_USER, ROLE_MODERATOR, ROLE_ADMIN**
+- Then continue the work 
+- **Remember turn the EurekaServer first**
