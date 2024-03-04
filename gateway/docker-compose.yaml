@@ -1,0 +1,14 @@
+version: "3.8"  # Current version as of March 1, 2024
+
+services:
+  my-app:
+    build: .  # Build the image from the current directory
+    image: llu1ts/eureka-server:1.0  # Tag the image as "my-app:latest"
+    container_name: EurekaServer
+    ports:
+      - "8761:8761"  # Map container port 9100 to host port 9100
+    volumes:
+      - .:/app:rw  # Mount current directory to /app in the container (read-write)
+    environment:
+      PORT: 9100  # Set environment variable PORT to 9100 inside the container
+    command: ["java", "-jar","/authService.jar"]  # Run command upon container start

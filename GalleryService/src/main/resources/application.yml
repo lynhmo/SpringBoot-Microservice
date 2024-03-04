@@ -1,0 +1,7 @@
+
+spring.application.name=gallery-service
+server.port=8100
+eureka.client.service-url.default-zone=http://host.docker.internal:8761/eureka
+eureka.client.register-with-eureka=true
+eureka.client.fetch-registry=true
+

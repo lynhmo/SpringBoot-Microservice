@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  gateway:
+    build: .
+    container_name: GatewayService
+    ports:
+      - "8762:8762"
+    environment:
+      PORT: 8762
+    command: ["java", "-jar","/gatewayService.jar"]
+    networks:
+      - micro-net
+networks:
+  micro-net:
+    name: micro-net
