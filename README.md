@@ -9,6 +9,8 @@
 6. Gallery Service use the Auth Service to authenticate so use need to include the token into the header to authenticate [localhost:8762/gallery/auth](localhost:8762/gallery/auth) (use **POST**, send the token in the body)
 7. after gallery call the auth from auth-service the auth-service will return username, roles. Gallery-Service will use the role to determine the authorities of the user (base on the token)
 
+No need to start the **zuul gateway** it's not working yet!
+
 ### Libs:
 - io.jjwt 0.12.5
 - Eureka Server/Client
